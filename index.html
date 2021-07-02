@@ -1,6 +1,45 @@
 <!--Copyright 2021 Jean Fay SQL Reports and HTML Web Designs--><head><title>This is a website belonging to Aarush Panda.</title><link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
+<script type="text/javascript">
+// <![CDATA[
+var speed=100; // speed of wobbling, lower is faster
+var height=3; // height of wobbling in pixels
+var alink=""; // page to link text to (set to ="" for no link)
+
+/****************************
+*    Wobbly Text Effect     *
+*(c) 2003-6 mf2fm web-design*
+*  http://www.mf2fm.com/rv  *
+* DON'T EDIT BELOW THIS BOX *
+****************************/
+var wobtxt, wobble, wobcnt=0;
+window.onload=function() { if (document.getElementById) {
+  var i, wobli;
+  wobble=document.getElementById("wobble");
+  wobtxt=wobble.firstChild.nodeValue;
+  while (wobble.childNodes.length) wobble.removeChild(wobble.childNodes[0]);
+  for (i=0; i<wobtxt.length; i++) {
+    wobli=document.createElement("span");
+    wobli.setAttribute("id", "wobb"+i);
+    wobli.style.position="relative";
+    wobli.appendChild(document.createTextNode(wobtxt.charAt(i)));
+    if (alink) {
+      wobli.style.cursor="pointer";
+      wobli.onclick=function() { top.location.href=alink; }
+    }
+    wobble.appendChild(wobli);
+  }
+  setInterval("wobbler()", speed);
+}}
+
+function wobbler() {
+  for (var i=0; i<wobtxt.length; i++) document.getElementById("wobb"+i).style.top=Math.round(height*Math.sin(i+wobcnt))+"px"
+  wobcnt++;
+}
+// ]]>
+</script>
+
 <style type="text/css">* {cursor: url(https://cur.cursors-4u.net/sports/spo-7/spo748.cur), auto !important;}</style><a href="https://www.cursors-4u.com/cursor/2011/01/18/minnesota-vikings-2.html" target="_blank" title="Minnesota Vikings"><img src="https://cur.cursors-4u.net/cursor.png" border="0" alt="Minnesota Vikings" style="position:absolute; top: 0px; right: 0px;" /></a>
 <script type="text/javascript">
 // <![CDATA[
@@ -200,7 +239,7 @@ function set_width() {
 </script>
 <main><div style="background-image: url('https://i.pinimg.com/originals/41/bc/df/41bcdf82d242b3542c90d48f0272b3c8.jpg');">
   <p><h2> <font color="white"> <center>Welcome to <b><Marquee>🚗 AARU.SH</marquee></b>The freshest site on internet!</center><br></h2><center>
-<p><font color="white" face = "Comic sans MS" size =" 7">Bring on the memes!</font> </p><br> <br>
+<p><div id="wobble" font face="serif-sans">Bring on the memes!</div></p><br> <br>
   <center>
    <img src="https://www.etags.com/blog/wp-content/uploads/2017/08/driving-test-meme.jpg" target="Ice Cube">.</p>
    <img src="https://memegenerator.net/img/instances/60142566/that-feeling-when-you-passed-the-test.jpg" target="Pennsyltucky">.</p>
